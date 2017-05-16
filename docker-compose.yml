@@ -1,0 +1,17 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.6.2
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    env_file: .env
+    command: bin/rails server --port 4000 --binding 0.0.0.0
+    ports:
+      - "4000:4000"
+    links:
+      - db
+    volumes:
+      - .:/hertz
