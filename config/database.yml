@@ -16,7 +16,7 @@ test:
   username: postgres
   password:
   host: db
-  port: 5431
+  port: 5432
 
 production:
   <<: *default
